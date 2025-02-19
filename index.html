@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Win $1,000,000!</title>
+<style>
+   body {
+     margin: 0;
+     padding: 20px;
+     font-family: sans-serif;
+   }
+   h1 {
+     margin-bottom: 20px;
+   }
+   form {
+     position: relative; /* so the button can move within this area if needed */
+     display: inline-block;
+     border: 1px solid #ccc;
+     padding: 15px;
+     border-radius: 8px;
+   }
+   label, input {
+     display: block;
+     margin-bottom: 10px;
+   }
+   #submitBtn {
+     padding: 10px 20px;
+     cursor: pointer;
+     position: absolute; /* allows us to move it around dynamically */
+   }
+</style>
+</head>
+<body>
+<h1>Win $1,000,000!</h1>
+<form>
+<label for="email">Your Email Address</label>
+<input type="email" id="email" name="email" placeholder="Enter your email" />
+<!-- The tricky button -->
+<button id="submitBtn" type="button">Submit</button>
+</form>
+<script>
+   const button = document.getElementById('submitBtn');
+   // Randomly move the button to a new location on the screen
+   function moveButtonRandomly() {
+     const viewportWidth = window.innerWidth;
+     const viewportHeight = window.innerHeight;
+     // Get approximate width & height of the button
+     const btnWidth = button.offsetWidth;
+     const btnHeight = button.offsetHeight;
+     // Generate a random position ensuring the button stays within the viewport
+     const newLeft = Math.floor(Math.random() * (viewportWidth - btnWidth));
+     const newTop  = Math.floor(Math.random() * (viewportHeight - btnHeight));
+     button.style.left = `${newLeft}px`;
+     button.style.top = `${newTop}px`;
+   }
+   // Calculate the distance between mouse pointer and the button's center
+   function getDistanceToButton(mouseX, mouseY) {
+     const rect = button.getBoundingClientRect();
+     const buttonCenterX = rect.left + rect.width / 2;
+     const buttonCenterY = rect.top + rect.height / 2;
+     const distX = mouseX - buttonCenterX;
+     const distY = mouseY - buttonCenterY;
+     return Math.sqrt(distX * distX + distY * distY);
+   }
+   // Whenever the mouse moves, if it's too close to the button, move the button
+   document.addEventListener('mousemove', (e) => {
+     const distance = getDistanceToButton(e.clientX, e.clientY);
+     // Adjust the threshold to make the button move away sooner or later
+     const threshold = 100; // px
+     if (distance < threshold) {
+       moveButtonRandomly();
+     }
+   });
+   // Initialize the button's position somewhere random
+   moveButtonRandomly();
+</script>
+</body>
+</html>
