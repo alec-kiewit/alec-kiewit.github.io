@@ -1,34 +1,45 @@
-/* Import that cute cursive font */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-/* Make the whole page a pastel pink gradient */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Pacifico', cursive;
-  background: linear-gradient(135deg, #ffe4f0 0%, #ffccdd 100%);
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), linear-gradient(135deg, #ffe4f0 0%, #ffccdd 100%);
   color: #6a0b3f;
   text-align: center;
+  animation: sparklebg 10s infinite linear;
 }
 
-/* Header “hero” section */
+@keyframes sparklebg {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
 .hero {
   padding: 4rem 1rem;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.5);
   border-bottom: 5px dashed #ffc0cb;
+  position: relative;
+  overflow: hidden;
 }
 
 .unicorn-img {
-  width: 500px; /* increase from 180px to 300px */
-  max-width: 80%; /* still keeps it responsive */
+  width: 500px;
+  max-width: 90%;
   margin-bottom: 1rem;
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.9));
+  animation: floaty 4s ease-in-out infinite;
 }
 
-/* Big sparkly titles */
+@keyframes floaty {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
 h1 {
   font-size: 3rem;
   margin: 0.5rem 0;
+  text-shadow: 1px 1px 2px white;
 }
 
 h2 {
@@ -36,23 +47,51 @@ h2 {
   margin-top: 2rem;
   position: relative;
 }
+
 h2::after {
   content: '✨';
   position: absolute;
   right: -1.5rem;
   top: 0;
   font-size: 1.5rem;
+  animation: twinkle 1.5s infinite alternate;
 }
 
-/* Main content spacing */
+@keyframes twinkle {
+  0% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
 .content {
   padding: 2rem 1rem;
 }
 
-/* Footer style */
 footer {
   padding: 1rem;
   background: rgba(255, 255, 255, 0.5);
   border-top: 3px solid #ffc0cb;
   font-size: 0.9rem;
+}
+
+marquee {
+  font-size: 1.5rem;
+  color: #ff69b4;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px dotted #ffb6c1;
+  margin: 1rem 0;
+  padding: 0.5rem;
+}
+
+.rainbow-text {
+  animation: rainbow 3s linear infinite;
+}
+
+@keyframes rainbow {
+  0% { color: red; }
+  16% { color: orange; }
+  33% { color: yellow; }
+  50% { color: green; }
+  66% { color: blue; }
+  83% { color: indigo; }
+  100% { color: violet; }
 }
