@@ -1,80 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Win $1,000,000!</title>
-<style>
-   body {
-     margin: 0;
-     padding: 20px;
-     font-family: sans-serif;
-   }
-   h1 {
-     margin-bottom: 20px;
-   }
-   form {
-     position: relative; /* so the button can move within this area if needed */
-     display: inline-block;
-     border: 1px solid #ccc;
-     padding: 15px;
-     border-radius: 8px;
-   }
-   label, input {
-     display: block;
-     margin-bottom: 10px;
-   }
-   #submitBtn {
-     padding: 20px 40px;
-     background-color: green;
-     cursor: pointer;
-     position: absolute; /* allows us to move it around dynamically */
-   }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🦄 Fluffy Unicorn Haven</title>
+
+  <!-- Google Fonts: a playful cursive -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Your fluffy styles -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-<h1>Win $1,000,000!</h1>
-<form>
-<label for="icecream">Your Favorite Ice Cream Flavor</label>
-<input type="email" id="icecream" name="icecream" placeholder="Enter your favorite ice cream flavor" />
-<!-- The tricky button -->
-<button id="submitBtn" type="button">$$$ Click Here To Win $1,000,000! $$$</button>
-</form>
-<script>
-   const button = document.getElementById('submitBtn');
-   // Randomly move the button to a new location on the screen
-   function moveButtonRandomly() {
-     const viewportWidth = window.innerWidth;
-     const viewportHeight = window.innerHeight;
-     // Get approximate width & height of the button
-     const btnWidth = button.offsetWidth;
-     const btnHeight = button.offsetHeight;
-     // Generate a random position ensuring the button stays within the viewport
-     const newLeft = Math.floor(Math.random() * (viewportWidth - btnWidth));
-     const newTop  = Math.floor(Math.random() * (viewportHeight - btnHeight));
-     button.style.left = `${newLeft}px`;
-     button.style.top = `${newTop}px`;
-   }
-   // Calculate the distance between mouse pointer and the button's center
-   function getDistanceToButton(mouseX, mouseY) {
-     const rect = button.getBoundingClientRect();
-     const buttonCenterX = rect.left + rect.width / 2;
-     const buttonCenterY = rect.top + rect.height / 2;
-     const distX = mouseX - buttonCenterX;
-     const distY = mouseY - buttonCenterY;
-     return Math.sqrt(distX * distX + distY * distY);
-   }
-   // Whenever the mouse moves, if it's too close to the button, move the button
-   document.addEventListener('mousemove', (e) => {
-     const distance = getDistanceToButton(e.clientX, e.clientY);
-     // Adjust the threshold to make the button move away sooner or later
-     const threshold = 100; // px
-     if (distance < threshold) {
-       moveButtonRandomly();
-     }
-   });
-   // Initialize the button's position somewhere random
-   moveButtonRandomly();
-</script>
-   <p>Disclaimer: Will not really win you $1,000,000.</p>
+  <header class="hero">
+    <img
+      src="assets/images/unicorn.png"
+      alt="Fluffy Unicorn"
+      class="unicorn-img"
+    />
+    <h1>Welcome to Unicorn Haven!</h1>
+    <p>All the fluff, all the sparkle, all the pink!</p>
+  </header>
+
+  <main class="content">
+    <section>
+      <h2>Meet Your Unicorns</h2>
+      <p>
+        We believe every day should be as magical as a unicorn’s mane.
+        Browse our collection of pastel horned friends!
+      </p>
+      <!-- You can add unicorn card here -->
+    </section>
+
+    <section>
+      <h2>Glitter Gallery</h2>
+      <p>
+        Snapshots of unicorn adventures — rainbows, clouds, and
+        marshmallow skies.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Fluffy Unicorn Haven</p>
+  </footer>
 </body>
 </html>
