@@ -1,0 +1,58 @@
+/* Import that cute cursive font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+/* Make the whole page a pastel pink gradient */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Pacifico', cursive;
+  background: linear-gradient(135deg, #ffe4f0 0%, #ffccdd 100%);
+  color: #6a0b3f;
+  text-align: center;
+}
+
+/* Header “hero” section */
+.hero {
+  padding: 4rem 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-bottom: 5px dashed #ffc0cb;
+}
+
+.unicorn-img {
+  width: 180px;
+  max-width: 60%;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+}
+
+/* Big sparkly titles */
+h1 {
+  font-size: 3rem;
+  margin: 0.5rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+  position: relative;
+}
+h2::after {
+  content: '✨';
+  position: absolute;
+  right: -1.5rem;
+  top: 0;
+  font-size: 1.5rem;
+}
+
+/* Main content spacing */
+.content {
+  padding: 2rem 1rem;
+}
+
+/* Footer style */
+footer {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  border-top: 3px solid #ffc0cb;
+  font-size: 0.9rem;
+}
